@@ -150,5 +150,12 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-*.zip
-*.html
+# *.zip
+# *.html
+
+*.fastqc
+*.gz
+*.fa 
+*.sam
+*Log*
+Mus_musculus.GRCm39.dna.ens112.STAR_2.7.11b

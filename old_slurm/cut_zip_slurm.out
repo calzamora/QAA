@@ -1,0 +1,703 @@
+# packages in environment at /projects/bgmp/calz/miniforge3/envs/QAA:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                 conda_forge    conda-forge
+_openmp_mutex             4.5                       2_gnu    conda-forge
+alsa-lib                  1.2.12               h4ab18f5_0    conda-forge
+brotli                    1.1.0                hd590300_1    conda-forge
+brotli-bin                1.1.0                hd590300_1    conda-forge
+bzip2                     1.0.8                h4bc722e_7    conda-forge
+ca-certificates           2024.8.30            hbcca054_0    conda-forge
+cairo                     1.18.0               hebfffa5_3    conda-forge
+certifi                   2024.8.30          pyhd8ed1ab_0    conda-forge
+cffi                      1.17.0          py312h06ac9bb_1    conda-forge
+contourpy                 1.2.1           py312h8572e83_0    conda-forge
+cutadapt                  4.9             py312hf67a6ed_1    bioconda
+cycler                    0.12.1             pyhd8ed1ab_0    conda-forge
+dbus                      1.13.6               h5008d03_3    conda-forge
+dnaio                     1.2.1           py312hf67a6ed_2    bioconda
+double-conversion         3.3.0                h59595ed_0    conda-forge
+expat                     2.6.2                h59595ed_0    conda-forge
+fastqc                    0.12.1               hdfd78af_0    bioconda
+font-ttf-dejavu-sans-mono 2.37                 hab24e00_0    conda-forge
+font-ttf-inconsolata      3.000                h77eed37_0    conda-forge
+font-ttf-source-code-pro  2.038                h77eed37_0    conda-forge
+font-ttf-ubuntu           0.83                 h77eed37_2    conda-forge
+fontconfig                2.14.2               h14ed4e7_0    conda-forge
+fonts-conda-ecosystem     1                             0    conda-forge
+fonts-conda-forge         1                             0    conda-forge
+fonttools                 4.53.1          py312h41a817b_0    conda-forge
+freetype                  2.12.1               h267a509_2    conda-forge
+giflib                    5.2.2                hd590300_0    conda-forge
+graphite2                 1.3.13            h59595ed_1003    conda-forge
+harfbuzz                  9.0.0                hda332d3_1    conda-forge
+icu                       75.1                 he02047a_0    conda-forge
+isa-l                     2.31.0               h4bc722e_2    conda-forge
+keyutils                  1.6.1                h166bdaf_0    conda-forge
+kiwisolver                1.4.5           py312h8572e83_1    conda-forge
+krb5                      1.21.3               h659f571_0    conda-forge
+lcms2                     2.16                 hb7c19ff_0    conda-forge
+ld_impl_linux-64          2.40                 hf3520f5_7    conda-forge
+lerc                      4.0.0                h27087fc_0    conda-forge
+libblas                   3.9.0           23_linux64_openblas    conda-forge
+libbrotlicommon           1.1.0                hd590300_1    conda-forge
+libbrotlidec              1.1.0                hd590300_1    conda-forge
+libbrotlienc              1.1.0                hd590300_1    conda-forge
+libcblas                  3.9.0           23_linux64_openblas    conda-forge
+libclang-cpp18.1          18.1.8          default_hf981a13_2    conda-forge
+libclang13                18.1.8          default_h9def88c_2    conda-forge
+libcups                   2.3.3                h4637d8d_4    conda-forge
+libdeflate                1.21                 h4bc722e_0    conda-forge
+libdrm                    2.4.123              hb9d3cd8_0    conda-forge
+libedit                   3.1.20191231         he28a2e2_2    conda-forge
+libegl                    1.7.0                ha4b6fd6_0    conda-forge
+libexpat                  2.6.2                h59595ed_0    conda-forge
+libffi                    3.4.2                h7f98852_5    conda-forge
+libgcc                    14.1.0               h77fa898_1    conda-forge
+libgcc-ng                 14.1.0               h69a702a_1    conda-forge
+libgfortran-ng            14.1.0               h69a702a_0    conda-forge
+libgfortran5              14.1.0               hc5f4f2c_0    conda-forge
+libgl                     1.7.0                ha4b6fd6_0    conda-forge
+libglib                   2.80.3               h315aac3_2    conda-forge
+libglvnd                  1.7.0                ha4b6fd6_0    conda-forge
+libglx                    1.7.0                ha4b6fd6_0    conda-forge
+libgomp                   14.1.0               h77fa898_1    conda-forge
+libiconv                  1.17                 hd590300_2    conda-forge
+libjpeg-turbo             3.0.0                hd590300_1    conda-forge
+liblapack                 3.9.0           23_linux64_openblas    conda-forge
+libllvm18                 18.1.8               h8b73ec9_2    conda-forge
+libnsl                    2.0.1                hd590300_0    conda-forge
+libopenblas               0.3.27          pthreads_hac2b453_1    conda-forge
+libpciaccess              0.18                 hd590300_0    conda-forge
+libpng                    1.6.43               h2797004_0    conda-forge
+libpq                     16.4                 h482b261_0    conda-forge
+libsqlite                 3.46.0               hde9e2c9_0    conda-forge
+libstdcxx                 14.1.0               hc0a3c3a_1    conda-forge
+libstdcxx-ng              14.1.0               h4852527_1    conda-forge
+libtiff                   4.6.0                h46a8edc_4    conda-forge
+libuuid                   2.38.1               h0b41bf4_0    conda-forge
+libwebp-base              1.4.0                hd590300_0    conda-forge
+libxcb                    1.16                 hd590300_0    conda-forge
+libxcrypt                 4.4.36               hd590300_1    conda-forge
+libxkbcommon              1.7.0                h2c5496b_1    conda-forge
+libxml2                   2.12.7               he7c6b58_4    conda-forge
+libxslt                   1.1.39               h76b75d6_0    conda-forge
+libzlib                   1.3.1                h4ab18f5_1    conda-forge
+matplotlib                3.9.2           py312h7900ff3_0    conda-forge
+matplotlib-base           3.9.2           py312h854627b_0    conda-forge
+munkres                   1.1.4              pyh9f0ad1d_0    conda-forge
+mysql-common              9.0.1                h70512c7_0    conda-forge
+mysql-libs                9.0.1                ha479ceb_0    conda-forge
+ncurses                   6.5                  h59595ed_0    conda-forge
+numpy                     2.1.0           py312h1103770_0    conda-forge
+openjdk                   22.0.1               h8651b0f_1    conda-forge
+openjpeg                  2.5.2                h488ebb8_0    conda-forge
+openssl                   3.3.2                hb9d3cd8_0    conda-forge
+packaging                 24.1               pyhd8ed1ab_0    conda-forge
+pbzip2                    1.1.13               h1fcc475_2    conda-forge
+pcre2                     10.44                hba22ea6_2    conda-forge
+perl                      5.32.1          7_hd590300_perl5    conda-forge
+pigz                      2.8                  h2797004_0    conda-forge
+pillow                    10.4.0          py312h287a98d_0    conda-forge
+pip                       24.2               pyh8b19718_1    conda-forge
+pixman                    0.43.2               h59595ed_0    conda-forge
+pthread-stubs             0.4               h36c2ea0_1001    conda-forge
+pycparser                 2.22               pyhd8ed1ab_0    conda-forge
+pyparsing                 3.1.4              pyhd8ed1ab_0    conda-forge
+pyside6                   6.7.2           py312hb5137db_2    conda-forge
+python                    3.12.5          h2ad013b_0_cpython    conda-forge
+python-dateutil           2.9.0              pyhd8ed1ab_0    conda-forge
+python-isal               1.7.0           py312h41a817b_0    conda-forge
+python-zlib-ng            0.5.0           py312hbb25f6d_0    conda-forge
+python_abi                3.12                    5_cp312    conda-forge
+qhull                     2020.2               h434a139_5    conda-forge
+qt6-main                  6.7.2                hb12f9c5_5    conda-forge
+readline                  8.2                  h8228510_1    conda-forge
+setuptools                73.0.1             pyhd8ed1ab_0    conda-forge
+six                       1.16.0             pyh6c4a22f_0    conda-forge
+tk                        8.6.13          noxft_h4845f30_101    conda-forge
+tornado                   6.4.1           py312h9a8786e_0    conda-forge
+trimmomatic               0.39                 hdfd78af_2    bioconda
+tzdata                    2024a                h8827d51_1    conda-forge
+wayland                   1.23.1               h3e06ad9_0    conda-forge
+wheel                     0.44.0             pyhd8ed1ab_0    conda-forge
+xcb-util                  0.4.1                hb711507_2    conda-forge
+xcb-util-cursor           0.1.4                h4ab18f5_2    conda-forge
+xcb-util-image            0.4.0                hb711507_2    conda-forge
+xcb-util-keysyms          0.4.1                hb711507_0    conda-forge
+xcb-util-renderutil       0.3.10               hb711507_0    conda-forge
+xcb-util-wm               0.4.2                hb711507_0    conda-forge
+xkeyboard-config          2.42                 h4ab18f5_0    conda-forge
+xopen                     2.0.2              pyh707e725_1    conda-forge
+xorg-fixesproto           5.0               h7f98852_1002    conda-forge
+xorg-inputproto           2.3.2             h7f98852_1002    conda-forge
+xorg-kbproto              1.0.7             h7f98852_1002    conda-forge
+xorg-libice               1.1.1                hd590300_0    conda-forge
+xorg-libsm                1.2.4                h7391055_0    conda-forge
+xorg-libx11               1.8.9                hb711507_1    conda-forge
+xorg-libxau               1.0.11               hd590300_0    conda-forge
+xorg-libxdmcp             1.1.3                h7f98852_0    conda-forge
+xorg-libxext              1.3.4                h0b41bf4_2    conda-forge
+xorg-libxfixes            5.0.3             h7f98852_1004    conda-forge
+xorg-libxi                1.7.10               h4bc722e_1    conda-forge
+xorg-libxrender           0.9.11               hd590300_0    conda-forge
+xorg-libxt                1.3.0                hd590300_1    conda-forge
+xorg-libxtst              1.2.5                h4bc722e_0    conda-forge
+xorg-libxxf86vm           1.1.5                h4bc722e_1    conda-forge
+xorg-recordproto          1.14.2            h7f98852_1002    conda-forge
+xorg-renderproto          0.11.1            h7f98852_1002    conda-forge
+xorg-xextproto            7.3.0             h0b41bf4_1003    conda-forge
+xorg-xproto               7.0.31            h7f98852_1007    conda-forge
+xz                        5.2.6                h166bdaf_0    conda-forge
+zlib                      1.3.1                h4ab18f5_1    conda-forge
+zlib-ng                   2.2.1                he02047a_0    conda-forge
+zstandard                 0.23.0          py312hef9b889_1    conda-forge
+zstd                      1.5.6                ha6fb4c9_0    conda-forge
+This is cutadapt 4.9 with Python 3.12.5
+Command line parameters: -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o cutadapt_out/S9_L008_R1_001.fastq.gz -p cutadapt_out/S9_L008_R2_001.fastq.gz /projects/bgmp/shared/2017_sequencing/demultiplexed/11_2H_both_S9_L008_R1_001.fastq.gz /projects/bgmp/shared/2017_sequencing/demultiplexed/11_2H_both_S9_L008_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 252.067 s (14.067 µs/read; 4.27 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:         17,919,193
+  Read 1 with adapter:                 874,706 (4.9%)
+  Read 2 with adapter:               1,016,991 (5.7%)
+Pairs written (passing filters):    17,919,193 (100.0%)
+
+Total basepairs processed: 3,619,676,986 bp
+  Read 1: 1,809,838,493 bp
+  Read 2: 1,809,838,493 bp
+Total written (filtered):  3,602,949,169 bp (99.5%)
+  Read 1: 1,801,756,130 bp
+  Read 2: 1,801,193,039 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: AGATCGGAAGAGCACACGTCTGAACTCCAGTCA; Type: regular 3'; Length: 33; Trimmed: 874706 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-33 bp: 3
+
+Bases preceding removed adapters:
+  A: 22.2%
+  C: 28.5%
+  G: 29.5%
+  T: 19.4%
+  none/other: 0.4%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	351942	279987.4	0	351942
+4	97526	69996.8	0	97526
+5	45688	17499.2	0	45688
+6	30919	4374.8	0	30919
+7	28145	1093.7	0	28145
+8	25999	273.4	0	25999
+9	24403	68.4	0	24011 392
+10	22809	17.1	1	21917 892
+11	21290	4.3	1	20522 768
+12	19776	1.1	1	19158 618
+13	18174	0.3	1	17534 640
+14	16544	0.1	1	15922 622
+15	15492	0.0	1	14876 616
+16	14410	0.0	1	13809 601
+17	13247	0.0	1	12710 537
+18	12059	0.0	1	11527 520 12
+19	11062	0.0	1	10550 487 25
+20	9837	0.0	2	9334 437 66
+21	9212	0.0	2	8723 436 53
+22	8303	0.0	2	7788 439 76
+23	7371	0.0	2	6952 363 56
+24	6635	0.0	2	6207 361 67
+25	6074	0.0	2	5680 347 47
+26	5477	0.0	2	5097 339 41
+27	4914	0.0	2	4594 277 41 2
+28	4499	0.0	2	4202 246 46 5
+29	4076	0.0	2	3812 228 30 6
+30	3599	0.0	3	3323 238 31 7
+31	3136	0.0	3	2900 194 29 13
+32	2855	0.0	3	2626 181 37 11
+33	2536	0.0	3	2357 144 26 9
+34	2322	0.0	3	2143 149 14 16
+35	2049	0.0	3	1896 127 19 7
+36	1869	0.0	3	1738 104 19 8
+37	1663	0.0	3	1553 83 14 13
+38	1596	0.0	3	1447 126 16 7
+39	1387	0.0	3	1276 85 19 7
+40	1216	0.0	3	1125 73 12 6
+41	1032	0.0	3	942 76 11 3
+42	955	0.0	3	884 58 8 5
+43	894	0.0	3	838 45 10 1
+44	805	0.0	3	744 47 9 5
+45	672	0.0	3	628 38 5 1
+46	606	0.0	3	563 32 9 2
+47	613	0.0	3	571 31 10 1
+48	579	0.0	3	537 35 6 1
+49	493	0.0	3	463 25 4 1
+50	476	0.0	3	441 20 8 7
+51	418	0.0	3	388 22 6 2
+52	323	0.0	3	300 19 4
+53	304	0.0	3	283 16 3 2
+54	280	0.0	3	256 18 5 1
+55	252	0.0	3	239 10 3
+56	225	0.0	3	205 17 2 1
+57	218	0.0	3	210 7 1
+58	200	0.0	3	178 17 3 2
+59	174	0.0	3	161 10 2 1
+60	162	0.0	3	149 8 3 2
+61	131	0.0	3	119 10 1 1
+62	114	0.0	3	104 8 1 1
+63	104	0.0	3	94 10
+64	102	0.0	3	92 5 3 2
+65	95	0.0	3	88 1 5 1
+66	77	0.0	3	73 2 2
+67	60	0.0	3	56 2 0 2
+68	58	0.0	3	48 7 2 1
+69	49	0.0	3	46 3
+70	41	0.0	3	33 5 1 2
+71	32	0.0	3	28 3 0 1
+72	24	0.0	3	20 1 3
+73	22	0.0	3	17 2 1 2
+74	23	0.0	3	20 3
+75	10	0.0	3	8 2
+76	12	0.0	3	10 2
+77	16	0.0	3	12 2 1 1
+78	12	0.0	3	10 1 1
+79	10	0.0	3	8 1 0 1
+80	4	0.0	3	4
+81	5	0.0	3	5
+82	12	0.0	3	11 1
+83	8	0.0	3	7 1
+84	4	0.0	3	4
+85	8	0.0	3	7 1
+86	5	0.0	3	5
+87	9	0.0	3	5 3 1
+88	4	0.0	3	4
+89	4	0.0	3	3 1
+90	4	0.0	3	3 0 1
+91	7	0.0	3	7
+92	2	0.0	3	2
+93	3	0.0	3	2 1
+94	2	0.0	3	2
+96	6	0.0	3	6
+97	2	0.0	3	2
+98	2	0.0	3	2
+99	3	0.0	3	2 1
+101	3828	0.0	3	5 3416 365 42
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT; Type: regular 3'; Length: 33; Trimmed: 1016991 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-33 bp: 3
+
+Bases preceding removed adapters:
+  A: 24.0%
+  C: 31.0%
+  G: 30.1%
+  T: 14.6%
+  none/other: 0.4%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	461421	279987.4	0	461421
+4	119823	69996.8	0	119823
+5	49898	17499.2	0	49898
+6	32417	4374.8	0	32417
+7	28362	1093.7	0	28362
+8	26331	273.4	0	26331
+9	24781	68.4	0	24207 574
+10	23249	17.1	1	22122 1127
+11	21683	4.3	1	20829 854
+12	19993	1.1	1	19433 560
+13	18286	0.3	1	17836 450
+14	16672	0.1	1	16265 407
+15	15597	0.0	1	15113 484
+16	14513	0.0	1	14092 421
+17	13356	0.0	1	12917 439
+18	12140	0.0	1	11655 483 2
+19	11129	0.0	1	10713 408 8
+20	9890	0.0	2	9462 366 62
+21	9260	0.0	2	8907 308 45
+22	8354	0.0	2	7976 333 45
+23	7430	0.0	2	7089 300 41
+24	6687	0.0	2	6330 313 44
+25	6128	0.0	2	5826 258 44
+26	5523	0.0	2	5203 273 47
+27	4951	0.0	2	4696 225 29 1
+28	4552	0.0	2	4285 227 39 1
+29	4136	0.0	2	3883 208 40 5
+30	3651	0.0	3	3390 207 42 12
+31	3210	0.0	3	2901 239 45 25
+32	2901	0.0	3	2691 159 36 15
+33	2601	0.0	3	2420 122 43 16
+34	2371	0.0	3	2215 115 29 12
+35	2093	0.0	3	1932 125 20 16
+36	1905	0.0	3	1781 96 16 12
+37	1708	0.0	3	1570 105 18 15
+38	1655	0.0	3	1539 86 16 14
+39	1435	0.0	3	1324 92 11 8
+40	1264	0.0	3	1168 65 20 11
+41	1086	0.0	3	982 79 14 11
+42	991	0.0	3	908 62 16 5
+43	932	0.0	3	856 47 14 15
+44	849	0.0	3	786 45 11 7
+45	710	0.0	3	637 48 17 8
+46	640	0.0	3	579 46 8 7
+47	653	0.0	3	596 34 13 10
+48	628	0.0	3	558 36 18 16
+49	534	0.0	3	475 42 8 9
+50	524	0.0	3	479 25 11 9
+51	444	0.0	3	409 18 10 7
+52	356	0.0	3	313 25 9 9
+53	332	0.0	3	283 31 12 6
+54	323	0.0	3	279 28 11 5
+55	290	0.0	3	245 31 11 3
+56	252	0.0	3	214 26 9 3
+57	252	0.0	3	218 19 6 9
+58	221	0.0	3	195 17 7 2
+59	208	0.0	3	173 21 9 5
+60	197	0.0	3	169 11 9 8
+61	158	0.0	3	133 15 5 5
+62	150	0.0	3	123 15 5 7
+63	130	0.0	3	115 4 6 5
+64	127	0.0	3	107 8 7 5
+65	124	0.0	3	93 19 5 7
+66	103	0.0	3	86 8 1 8
+67	86	0.0	3	68 8 7 3
+68	86	0.0	3	64 10 7 5
+69	69	0.0	3	53 4 8 4
+70	69	0.0	3	51 6 5 7
+71	47	0.0	3	35 7 0 5
+72	48	0.0	3	36 4 3 5
+73	47	0.0	3	30 7 5 5
+74	35	0.0	3	29 2 2 2
+75	29	0.0	3	16 7 3 3
+76	30	0.0	3	18 6 1 5
+77	33	0.0	3	20 8 2 3
+78	19	0.0	3	13 2 3 1
+79	18	0.0	3	15 2 0 1
+80	6	0.0	3	4 2
+81	10	0.0	3	8 0 1 1
+82	13	0.0	3	10 2 0 1
+83	11	0.0	3	7 2 1 1
+84	10	0.0	3	7 1 0 2
+85	10	0.0	3	8 1 0 1
+86	5	0.0	3	4 1
+87	9	0.0	3	6 3
+88	4	0.0	3	3 1
+89	4	0.0	3	4
+90	4	0.0	3	4
+91	8	0.0	3	6 1 0 1
+92	2	0.0	3	2
+93	3	0.0	3	2 1
+94	2	0.0	3	1 1
+96	6	0.0	3	5 0 1
+97	3	0.0	3	1 1 1
+98	2	0.0	3	1 1
+99	3	0.0	3	2 1
+101	3690	0.0	3	3 3253 378 56
+	Command being timed: "cutadapt -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o cutadapt_out/S9_L008_R1_001.fastq.gz -p cutadapt_out/S9_L008_R2_001.fastq.gz /projects/bgmp/shared/2017_sequencing/demultiplexed/11_2H_both_S9_L008_R1_001.fastq.gz /projects/bgmp/shared/2017_sequencing/demultiplexed/11_2H_both_S9_L008_R2_001.fastq.gz"
+	User time (seconds): 250.66
+	System time (seconds): 0.49
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:12.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 37900
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 7557
+	Voluntary context switches: 746
+	Involuntary context switches: 102
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+This is cutadapt 4.9 with Python 3.12.5
+Command line parameters: -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o cutadapt_out/S21_L008_R1_001.fastq.gz -p cutadapt_out/S21_L008_R2_001.fastq.gz /projects/bgmp/shared/2017_sequencing/demultiplexed/29_4E_fox_S21_L008_R1_001.fastq.gz /projects/bgmp/shared/2017_sequencing/demultiplexed/29_4E_fox_S21_L008_R2_001.fastq.gz
+Processing paired-end reads on 1 core ...
+Finished in 72.392 s (14.996 µs/read; 4.00 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:          4,827,433
+  Read 1 with adapter:                 361,886 (7.5%)
+  Read 2 with adapter:                 400,819 (8.3%)
+Pairs written (passing filters):     4,827,433 (100.0%)
+
+Total basepairs processed:   975,141,466 bp
+  Read 1:   487,570,733 bp
+  Read 2:   487,570,733 bp
+Total written (filtered):    963,930,893 bp (98.9%)
+  Read 1:   482,046,570 bp
+  Read 2:   481,884,323 bp
+
+=== First read: Adapter 1 ===
+
+Sequence: AGATCGGAAGAGCACACGTCTGAACTCCAGTCA; Type: regular 3'; Length: 33; Trimmed: 361886 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-33 bp: 3
+
+Bases preceding removed adapters:
+  A: 14.8%
+  C: 27.0%
+  G: 42.5%
+  T: 15.3%
+  none/other: 0.4%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	91906	75428.6	0	91906
+4	26913	18857.2	0	26913
+5	13735	4714.3	0	13735
+6	9742	1178.6	0	9742
+7	9377	294.6	0	9377
+8	8970	73.7	0	8970
+9	9016	18.4	0	8897 119
+10	8908	4.6	1	8590 318
+11	8578	1.2	1	8333 245
+12	8332	0.3	1	8103 229
+13	8363	0.1	1	8139 224
+14	7947	0.0	1	7697 250
+15	7840	0.0	1	7615 225
+16	7688	0.0	1	7469 219
+17	7329	0.0	1	7063 266
+18	7232	0.0	1	6974 252 6
+19	7001	0.0	1	6754 241 6
+20	6733	0.0	2	6465 235 33
+21	6464	0.0	2	6220 217 27
+22	6387	0.0	2	6131 226 30
+23	5960	0.0	2	5700 223 37
+24	5954	0.0	2	5659 267 28
+25	5802	0.0	2	5539 224 39
+26	5217	0.0	2	4940 236 41
+27	5184	0.0	2	4929 220 32 3
+28	4870	0.0	2	4604 223 42 1
+29	4675	0.0	2	4422 226 26 1
+30	4459	0.0	3	4193 222 29 15
+31	4209	0.0	3	3954 217 27 11
+32	3869	0.0	3	3643 181 36 9
+33	3530	0.0	3	3331 161 27 11
+34	3540	0.0	3	3339 168 26 7
+35	3173	0.0	3	3008 127 28 10
+36	2962	0.0	3	2792 155 11 4
+37	2804	0.0	3	2657 125 19 3
+38	2591	0.0	3	2469 105 11 6
+39	2324	0.0	3	2202 100 17 5
+40	2197	0.0	3	2073 104 15 5
+41	1974	0.0	3	1869 82 19 4
+42	1882	0.0	3	1779 86 14 3
+43	1545	0.0	3	1473 63 6 3
+44	1369	0.0	3	1305 55 9
+45	1323	0.0	3	1251 60 10 2
+46	1118	0.0	3	1073 35 6 4
+47	1079	0.0	3	1042 34 3
+48	970	0.0	3	925 39 4 2
+49	839	0.0	3	790 43 1 5
+50	785	0.0	3	740 39 5 1
+51	644	0.0	3	608 29 3 4
+52	579	0.0	3	548 28 3
+53	552	0.0	3	525 22 5
+54	442	0.0	3	424 17 1
+55	392	0.0	3	369 19 2 2
+56	354	0.0	3	340 10 2 2
+57	300	0.0	3	286 13 0 1
+58	281	0.0	3	273 7 1
+59	248	0.0	3	235 11 0 2
+60	269	0.0	3	257 11 1
+61	213	0.0	3	201 11 1
+62	192	0.0	3	184 6 1 1
+63	156	0.0	3	147 8 1
+64	136	0.0	3	125 9 0 2
+65	139	0.0	3	136 3
+66	114	0.0	3	106 7 1
+67	108	0.0	3	105 3
+68	95	0.0	3	90 4 1
+69	107	0.0	3	106 1
+70	79	0.0	3	74 4 1
+71	65	0.0	3	62 3
+72	62	0.0	3	58 3 1
+73	57	0.0	3	55 0 1 1
+74	48	0.0	3	45 1 2
+75	30	0.0	3	27 3
+76	28	0.0	3	27 0 0 1
+77	20	0.0	3	18 0 2
+78	17	0.0	3	15 2
+79	13	0.0	3	13
+80	9	0.0	3	9
+81	9	0.0	3	9
+82	11	0.0	3	10 1
+83	8	0.0	3	7 1
+84	4	0.0	3	4
+85	11	0.0	3	11
+86	6	0.0	3	6
+87	7	0.0	3	7
+88	7	0.0	3	7
+89	8	0.0	3	7 0 1
+90	4	0.0	3	4
+91	5	0.0	3	5
+92	1	0.0	3	1
+93	2	0.0	3	1 0 1
+94	5	0.0	3	5
+95	3	0.0	3	2 1
+96	4	0.0	3	4
+97	8	0.0	3	8
+98	6	0.0	3	5 1
+99	3	0.0	3	3
+100	5	0.0	3	5
+101	1355	0.0	3	3 1093 244 15
+
+
+=== Second read: Adapter 2 ===
+
+Sequence: AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT; Type: regular 3'; Length: 33; Trimmed: 400819 times
+
+Minimum overlap: 3
+No. of allowed errors:
+1-9 bp: 0; 10-19 bp: 1; 20-29 bp: 2; 30-33 bp: 3
+
+Bases preceding removed adapters:
+  A: 16.5%
+  C: 27.7%
+  G: 46.5%
+  T: 8.9%
+  none/other: 0.3%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+3	122913	75428.6	0	122913
+4	31646	18857.2	0	31646
+5	14723	4714.3	0	14723
+6	10333	1178.6	0	10333
+7	9522	294.6	0	9522
+8	9018	73.7	0	9018
+9	9103	18.4	0	8941 162
+10	8995	4.6	1	8682 313
+11	8715	1.2	1	8426 289
+12	8403	0.3	1	8198 205
+13	8396	0.1	1	8203 193
+14	7985	0.0	1	7823 162
+15	7896	0.0	1	7659 237
+16	7740	0.0	1	7577 163
+17	7351	0.0	1	7145 206
+18	7245	0.0	1	6996 249
+19	7019	0.0	1	6802 214 3
+20	6764	0.0	2	6500 235 29
+21	6469	0.0	2	6233 213 23
+22	6423	0.0	2	6205 193 25
+23	6001	0.0	2	5765 210 26
+24	5970	0.0	2	5705 240 25
+25	5839	0.0	2	5571 242 26
+26	5236	0.0	2	4991 221 24
+27	5207	0.0	2	4966 204 34 3
+28	4910	0.0	2	4649 224 37
+29	4709	0.0	2	4452 205 45 7
+30	4477	0.0	3	4250 187 31 9
+31	4218	0.0	3	3961 219 30 8
+32	3888	0.0	3	3661 184 36 7
+33	3566	0.0	3	3344 171 36 15
+34	3558	0.0	3	3362 155 31 10
+35	3186	0.0	3	2984 162 28 12
+36	2972	0.0	3	2834 114 17 7
+37	2813	0.0	3	2650 130 25 8
+38	2611	0.0	3	2454 114 19 24
+39	2332	0.0	3	2189 124 13 6
+40	2209	0.0	3	2103 81 19 6
+41	1991	0.0	3	1899 75 8 9
+42	1885	0.0	3	1783 71 23 8
+43	1558	0.0	3	1476 70 7 5
+44	1378	0.0	3	1311 53 9 5
+45	1333	0.0	3	1269 50 8 6
+46	1137	0.0	3	1082 45 5 5
+47	1080	0.0	3	1034 39 4 3
+48	987	0.0	3	939 34 8 6
+49	848	0.0	3	807 33 4 4
+50	793	0.0	3	749 37 4 3
+51	652	0.0	3	613 31 5 3
+52	594	0.0	3	562 21 3 8
+53	565	0.0	3	520 35 5 5
+54	457	0.0	3	422 24 9 2
+55	406	0.0	3	373 26 6 1
+56	362	0.0	3	344 12 4 2
+57	313	0.0	3	288 16 5 4
+58	291	0.0	3	273 12 4 2
+59	256	0.0	3	236 15 2 3
+60	280	0.0	3	261 13 5 1
+61	220	0.0	3	203 13 3 1
+62	202	0.0	3	196 5 0 1
+63	168	0.0	3	152 11 2 3
+64	146	0.0	3	135 8 0 3
+65	146	0.0	3	138 6 1 1
+66	120	0.0	3	112 5 1 2
+67	114	0.0	3	105 4 4 1
+68	104	0.0	3	94 4 3 3
+69	113	0.0	3	107 4 2
+70	88	0.0	3	79 6 2 1
+71	76	0.0	3	68 4 3 1
+72	74	0.0	3	66 5 2 1
+73	62	0.0	3	54 4 3 1
+74	55	0.0	3	44 8 1 2
+75	40	0.0	3	34 1 3 2
+76	32	0.0	3	27 2 2 1
+77	23	0.0	3	20 2 0 1
+78	19	0.0	3	18 0 1
+79	14	0.0	3	13 0 0 1
+80	11	0.0	3	10 1
+81	10	0.0	3	10
+82	13	0.0	3	10 2 0 1
+83	9	0.0	3	9
+84	4	0.0	3	4
+85	11	0.0	3	11
+86	8	0.0	3	4 2 2
+87	7	0.0	3	7
+88	7	0.0	3	6 1
+89	8	0.0	3	8
+90	5	0.0	3	3 2
+91	5	0.0	3	2 2 1
+92	1	0.0	3	1
+93	2	0.0	3	2
+94	5	0.0	3	2 2 1
+95	3	0.0	3	2 1
+96	4	0.0	3	1 3
+97	8	0.0	3	6 2
+98	7	0.0	3	3 2 1 1
+99	3	0.0	3	2 1
+100	5	0.0	3	0 1 4
+101	1340	0.0	3	0 1091 227 22
+	Command being timed: "cutadapt -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -o cutadapt_out/S21_L008_R1_001.fastq.gz -p cutadapt_out/S21_L008_R2_001.fastq.gz /projects/bgmp/shared/2017_sequencing/demultiplexed/29_4E_fox_S21_L008_R1_001.fastq.gz /projects/bgmp/shared/2017_sequencing/demultiplexed/29_4E_fox_S21_L008_R2_001.fastq.gz"
+	User time (seconds): 71.84
+	System time (seconds): 0.18
+	Percent of CPU this job got: 97%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:13.68
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 38096
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 7040
+	Voluntary context switches: 924
+	Involuntary context switches: 35
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
