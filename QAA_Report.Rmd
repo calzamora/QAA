@@ -1,0 +1,94 @@
+---
+title: "QAA_Report"
+output: html_document
+date: "2024-09-08"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(png)
+library(grid)
+library(gridExtra)
+```
+
+## Part 1 - Read Quality Score Distributions 
+### My Software - dist_qscore.py output plots
+```{r, echo=FALSE, fig.height = 15, fig.cap= "R1 is more consistant in quality score for both data sets. As expected, read quality dips at the beginning and ands of the reads. Overall, all reads are averaging over 30 in phred33 encoded Q-scores."}
+S9R1 <- readPNG("/projects/bgmp/calz/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R1.png")
+S9R2 <- readPNG("/projects/bgmp/calz/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R2.png")
+S21R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S21_L008_R1.png")
+S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S21_L008_R2.png")
+
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), rasterGrob(S21R1), rasterGrob(S21R2 ), nrow = 2, ncol = 2,top=textGrob("Graphs Output From dist_qscore.py", gp=gpar(fontsize=15)))
+
+```
+```{r, echo=FALSE, fig.height = 20, fig.cap= "Note: these plots really show the same information, except the one on the right connects\nthe dots in a way that is probably misleading since these represent independent observations."}
+S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/fastqc/11_2H_both_S9_L008_R1_001_fastqc/Images/per_base_quality.png")
+S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/fastqc/11_2H_both_S9_L008_R2_001_fastqc/Images/per_base_quality.png")
+
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 1,
+             top=textGrob("Graphs output from FastQC",
+                          gp=gpar(fontsize=15,font=8)))
+```
+```{r, echo=FALSE, fig.height = 20}
+
+S21R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/fastqc/29_4E_fox_S21_L008_R1_001_fastqc/Images/per_base_quality.png")
+S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/fastqc/29_4E_fox_S21_L008_R2_001_fastqc/Images/per_base_quality.png")
+
+grid.arrange( rasterGrob(S21R1), rasterGrob(S21R2 ), nrow = 2, ncol = 1,
+             top=textGrob("Graphs output from FastQC",
+                          gp=gpar(fontsize=30,font=8)), 
+             bottom = textGrob("Note: these plots really show the same information, except the one on the right connects\nthe dots in a way that is probably misleading since these represent independent observations.",
+                               gp = gpar(fontsize = 15)))
+```
+
+## Part 2 - Adaptor Trimming Comparison 
+
+## Part 3 - Alignment and Strand Specificity 
+### My script mapped_counts.py results
+```{r table1, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+tabl_3 <- "
+|     mapped_counts.py Results    | S9           | S21  |
+|---------------|:-------------:|------:|
+| Total Reads      | 34931226 | 9143808 |
+| Mapped Reads      | 33637699     |   8883008 |
+| Percent of Reads. Mapped | 96.3%     |    97.15% | 
+"
+cat(tabl_3) # output the table in a format good for HTML/PDF/docx conversion
+
+```
+
+### Are these libraries stranded? 
+**yes**
+
+### HT_seq Results 
+```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+tabl <- "
+|     S9 HTseq results    | Foward           | Reverse  |
+|---------------|:-------------:|------:|
+| Total Reads      | 17465613 | 17465613 |
+| Mapped Reads      | 557737     |   13817984 |
+| Percent of Reads. Mapped | 3.19%      |    79.12% | 
+"
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+
+tabl_1 <- "
+|    S21 HTseq results     | Foward           | Reverse  |
+|---------------|:-------------:|------:|
+| Total Reads      | 4571904 | 4571904 |
+| Mapped Reads      | 179976     |   3859630 |
+| Percent of Reads. Mapped | 3.93%      |    84.42% | 
+"
+cat(tabl_1) # output the table in a format good for HTML/PDF/docx conversion
+```
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
