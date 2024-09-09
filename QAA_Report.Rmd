@@ -13,36 +13,64 @@ library(gridExtra)
 
 ## Part 1 - Read Quality Score Distributions 
 ### My Software - dist_qscore.py output plots
-```{r, echo=FALSE, fig.height = 15, fig.cap= "R1 is more consistant in quality score for both data sets. As expected, read quality dips at the beginning and ands of the reads. Overall, all reads are averaging over 30 in phred33 encoded Q-scores."}
-S9R1 <- readPNG("/projects/bgmp/calz/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R1.png")
-S9R2 <- readPNG("/projects/bgmp/calz/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R2.png")
+```{r, echo=FALSE, fig.cap= "R1 is more consistant in quality score for both data sets. As expected, read quality dips at the beginning and ands of the reads. Overall, all reads are averaging over 30 in phred33 encoded Q-scores."}
+S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R1.png")
+S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R2.png")
 S21R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S21_L008_R1.png")
 S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S21_L008_R2.png")
 
 grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), rasterGrob(S21R1), rasterGrob(S21R2 ), nrow = 2, ncol = 2,top=textGrob("Graphs Output From dist_qscore.py", gp=gpar(fontsize=15)))
 
 ```
-```{r, echo=FALSE, fig.height = 20, fig.cap= "Note: these plots really show the same information, except the one on the right connects\nthe dots in a way that is probably misleading since these represent independent observations."}
-S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/fastqc/11_2H_both_S9_L008_R1_001_fastqc/Images/per_base_quality.png")
-S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/fastqc/11_2H_both_S9_L008_R2_001_fastqc/Images/per_base_quality.png")
+```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
+S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R1_001_fastqc/Images/per_base_quality.png")
+S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R2_001_fastqc/Images/per_base_quality.png")
 
-grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 1,
-             top=textGrob("Graphs output from FastQC",
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 2,
+             top=textGrob("Graphs output from S9_L008 FastQC",
                           gp=gpar(fontsize=15,font=8)))
 ```
-```{r, echo=FALSE, fig.height = 20}
+```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
 
-S21R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/fastqc/29_4E_fox_S21_L008_R1_001_fastqc/Images/per_base_quality.png")
-S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/fastqc/29_4E_fox_S21_L008_R2_001_fastqc/Images/per_base_quality.png")
+S21R1 <- readPNG("//Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R1_001_fastqc/Images/per_base_quality.png")
+S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R2_001_fastqc/Images/per_base_quality.png")
 
-grid.arrange( rasterGrob(S21R1), rasterGrob(S21R2 ), nrow = 2, ncol = 1,
-             top=textGrob("Graphs output from FastQC",
-                          gp=gpar(fontsize=30,font=8)), 
-             bottom = textGrob("Note: these plots really show the same information, except the one on the right connects\nthe dots in a way that is probably misleading since these represent independent observations.",
-                               gp = gpar(fontsize = 15)))
+grid.arrange( rasterGrob(S21R1), rasterGrob(S21R2), nrow = 2, ncol = 2,
+             top=textGrob("Graphs output from S21_L008 FastQC",
+                          gp=gpar(fontsize=15,font=8)))
 ```
 
 ## Part 2 - Adaptor Trimming Comparison 
+```{r, echo=FALSE, fig.cap= "Length distribution for S9(LEFT) + S21(RIGHT)"}
+
+S9_Trimmed_len_dist <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/read_dist/S9_L008_TRIMMED_PAIRED.png")
+
+S21_Trimmed_len_dist <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/read_dist/S21_L008_TRIMMED_PAIRED.png")
+
+grid.arrange(rasterGrob(S9_Trimmed_len_dist), rasterGrob(S21_Trimmed_len_dist), nrow = 2, ncol = 2,
+             top=textGrob("Distribution of Read Lengths' Log Transformed",
+                          gp=gpar(fontsize=15)))
+```
+
+### CHALLANGE - FastQC Trimmed data: 
+```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
+S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S9_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S9_L008_R2_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 2,
+             top=textGrob("Graphs output from S9_L008 Trimmed Data FastQC",
+                          gp=gpar(fontsize=15,font=8)))
+
+```
+```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
+S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R2_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 2,
+             top=textGrob("Graphs output from S21_L008 Trimmed Data FastQC",
+                          gp=gpar(fontsize=15,font=8)))
+```
+
 
 ## Part 3 - Alignment and Strand Specificity 
 ### My script mapped_counts.py results
@@ -82,13 +110,3 @@ tabl_1 <- "
 cat(tabl_1) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
