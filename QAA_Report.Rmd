@@ -13,7 +13,8 @@ library(gridExtra)
 
 ## Part 1 - Read Quality Score Distributions 
 ### My Software - dist_qscore.py output plots
-```{r, echo=FALSE, fig.cap= "R1 is more consistant in quality score for both data sets. As expected, read quality dips at the beginning and ands of the reads. Overall, all reads are averaging over 30 in phred33 encoded Q-scores."}
+
+```{r, echo=FALSE}
 S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R1.png")
 S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R2.png")
 S21R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S21_L008_R1.png")
@@ -22,11 +23,14 @@ S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out
 grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), rasterGrob(S21R1), rasterGrob(S21R2 ), nrow = 2, ncol = 2,top=textGrob("Graphs Output From dist_qscore.py", gp=gpar(fontsize=15)))
 
 ```
+
+R1 is more consistant in quality score for both data sets. As expected, read quality dips at the beginning and ands of the reads. Overall, all reads average over 30 in phred+33 encoding.
+
 ```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
 S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R1_001_fastqc/Images/per_base_quality.png")
 S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R2_001_fastqc/Images/per_base_quality.png")
 
-grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 2,
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 1, ncol = 2,
              top=textGrob("Graphs output from S9_L008 FastQC",
                           gp=gpar(fontsize=15,font=8)))
 ```
@@ -35,10 +39,13 @@ grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 2,
 S21R1 <- readPNG("//Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R1_001_fastqc/Images/per_base_quality.png")
 S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R2_001_fastqc/Images/per_base_quality.png")
 
-grid.arrange( rasterGrob(S21R1), rasterGrob(S21R2), nrow = 2, ncol = 2,
+grid.arrange( rasterGrob(S21R1), rasterGrob(S21R2), nrow = 1, ncol = 2,
              top=textGrob("Graphs output from S21_L008 FastQC",
                           gp=gpar(fontsize=15,font=8)))
 ```
+
+### Are these libraries high quality? 
+
 
 ## Part 2 - Adaptor Trimming Comparison 
 ```{r, echo=FALSE, fig.cap= "Length distribution for S9(LEFT) + S21(RIGHT)"}
@@ -47,7 +54,7 @@ S9_Trimmed_len_dist <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/r
 
 S21_Trimmed_len_dist <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/read_dist/S21_L008_TRIMMED_PAIRED.png")
 
-grid.arrange(rasterGrob(S9_Trimmed_len_dist), rasterGrob(S21_Trimmed_len_dist), nrow = 2, ncol = 2,
+grid.arrange(rasterGrob(S9_Trimmed_len_dist), rasterGrob(S21_Trimmed_len_dist), nrow = 1, ncol = 2,
              top=textGrob("Distribution of Read Lengths' Log Transformed",
                           gp=gpar(fontsize=15)))
 ```
@@ -57,7 +64,7 @@ grid.arrange(rasterGrob(S9_Trimmed_len_dist), rasterGrob(S21_Trimmed_len_dist), 
 S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S9_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
 S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S9_L008_R2_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
 
-grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 2,
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 1, ncol = 2,
              top=textGrob("Graphs output from S9_L008 Trimmed Data FastQC",
                           gp=gpar(fontsize=15,font=8)))
 
@@ -66,7 +73,7 @@ grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 2,
 S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
 S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R2_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
 
-grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 2, ncol = 2,
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 1, ncol = 2,
              top=textGrob("Graphs output from S21_L008 Trimmed Data FastQC",
                           gp=gpar(fontsize=15,font=8)))
 ```
@@ -86,8 +93,6 @@ cat(tabl_3) # output the table in a format good for HTML/PDF/docx conversion
 
 ```
 
-### Are these libraries stranded? 
-**yes**
 
 ### HT_seq Results 
 ```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
@@ -109,4 +114,5 @@ tabl_1 <- "
 "
 cat(tabl_1) # output the table in a format good for HTML/PDF/docx conversion
 ```
-
+### Are these libraries stranded? 
+**yes it is stranded - reverse stranded and because the forward, revers counts are different we know that the direction matters and it is stranded**
