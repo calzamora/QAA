@@ -1,0 +1,11 @@
+PASS	Basic Statistics	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+PASS	Per base sequence quality	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+WARN	Per tile sequence quality	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+PASS	Per sequence quality scores	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+WARN	Per base sequence content	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+PASS	Per sequence GC content	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+PASS	Per base N content	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+WARN	Sequence Length Distribution	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+WARN	Sequence Duplication Levels	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+PASS	Overrepresented sequences	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz
+PASS	Adapter Content	S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz

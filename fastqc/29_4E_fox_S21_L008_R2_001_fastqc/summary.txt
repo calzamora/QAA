@@ -1,0 +1,11 @@
+PASS	Basic Statistics	29_4E_fox_S21_L008_R2_001.fastq.gz
+PASS	Per base sequence quality	29_4E_fox_S21_L008_R2_001.fastq.gz
+WARN	Per tile sequence quality	29_4E_fox_S21_L008_R2_001.fastq.gz
+PASS	Per sequence quality scores	29_4E_fox_S21_L008_R2_001.fastq.gz
+WARN	Per base sequence content	29_4E_fox_S21_L008_R2_001.fastq.gz
+PASS	Per sequence GC content	29_4E_fox_S21_L008_R2_001.fastq.gz
+PASS	Per base N content	29_4E_fox_S21_L008_R2_001.fastq.gz
+PASS	Sequence Length Distribution	29_4E_fox_S21_L008_R2_001.fastq.gz
+WARN	Sequence Duplication Levels	29_4E_fox_S21_L008_R2_001.fastq.gz
+PASS	Overrepresented sequences	29_4E_fox_S21_L008_R2_001.fastq.gz
+PASS	Adapter Content	29_4E_fox_S21_L008_R2_001.fastq.gz
