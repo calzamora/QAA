@@ -63,6 +63,6 @@ plt.plot(nt_position_list, mean_list)
 
 plt.xlabel("Base Pair")
 plt.ylabel("Mean Quality Score")
-plt.title("Mean Quality Scores for Base Pair at Position X")
+plt.title(f"{args.o} Mean Quality Scores for Base Pair at Position X")
 
 plt.savefig(f"{args.o}.png")

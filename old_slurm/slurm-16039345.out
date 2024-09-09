@@ -230,46 +230,27 @@ zstd                      1.5.6                ha6fb4c9_0    conda-forge
 4300000 alignment record pairs processed.
 4400000 alignment record pairs processed.
 4500000 alignment record pairs processed.
-4600000 alignment record pairs processed.
-4700000 alignment record pairs processed.
-4800000 alignment record pairs processed.
-4900000 alignment record pairs processed.
-5000000 alignment record pairs processed.
-5100000 alignment record pairs processed.
-5200000 alignment record pairs processed.
-5300000 alignment record pairs processed.
-5400000 alignment record pairs processed.
-5500000 alignment record pairs processed.
-5600000 alignment record pairs processed.
-5700000 alignment record pairs processed.
-5800000 alignment record pairs processed.
-5900000 alignment record pairs processed.
-6000000 alignment record pairs processed.
-6100000 alignment record pairs processed.
-6200000 alignment record pairs processed.
-6300000 alignment record pairs processed.
-6400000 alignment record pairs processed.
-6500000 alignment record pairs processed.
-6600000 alignment record pairs processed.
-6700000 alignment record pairs processed.
-6800000 alignment record pairs processed.
-6900000 alignment record pairs processed.
-7000000 alignment record pairs processed.
-7100000 alignment record pairs processed.
-7200000 alignment record pairs processed.
-7300000 alignment record pairs processed.
-7400000 alignment record pairs processed.
-7500000 alignment record pairs processed.
-7600000 alignment record pairs processed.
-7700000 alignment record pairs processed.
-7800000 alignment record pairs processed.
-7900000 alignment record pairs processed.
-8000000 alignment record pairs processed.
-8100000 alignment record pairs processed.
-8200000 alignment record pairs processed.
-8300000 alignment record pairs processed.
-8400000 alignment record pairs processed.
-8500000 alignment record pairs processed.
-8600000 alignment record pairs processed.
-8700000 alignment record pairs processed.
-8800000 alignment record pairs processed.
+4571904 alignment record pairs processed.
+	Command being timed: "htseq-count --stranded=yes /projects/bgmp/calz/bioinfo/Bi623/QAA/S21_L008_001Aligned.out.sam /projects/bgmp/calz/bioinfo/Bi623/QAA/Mus_musculus.GRCm39.112.gtf"
+	User time (seconds): 388.04
+	System time (seconds): 1.73
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 6:36.94
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 251148
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 393907
+	Voluntary context switches: 1476
+	Involuntary context switches: 215
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -283,6 +283,18 @@ slurm script:\
 reran cutadapt to zip outputs: 
 [cut_zip_slurm](old_slurm/cut_zip_slurm.out)
 
+### plot length distributions: 
+```
+zcat /projects/bgmp/calz/bioinfo/Bi623/QAA/trimmomatic/S9_L008_R1_001_TRIMMED_PAIRED.fastqc.gz |grep -B1 "^+" | grep -v "^--" | grep -v "^+" | awk '{print length($0)}' | sort -n | uniq -c | sort > read_dist/S9_R1_PAIRED_LEN_DIST
+
+zcat /projects/bgmp/calz/bioinfo/Bi623/QAA/trimmomatic/S9_L008_R2_001_TRIMMED_PAIRED.fastqc.gz |grep -B1 "^+" | grep -v "^--" | grep -v "^+" | awk '{print length($0)}' | sort -n | uniq -c | sort > read_dist/S9_R2_PAIRED_LEN_DIST
+
+zcat /projects/bgmp/calz/bioinfo/Bi623/QAA/trimmomatic/S21_L008_R1_001_TRIMMED_PAIRED.fastqc.gz |grep -B1 "^+" | grep -v "^--" | grep -v "^+" | awk '{print length($0)}' | sort -n | uniq -c | sort > read_dist/S21_R1_PAIRED_LEN_DIST
+
+zcat /projects/bgmp/calz/bioinfo/Bi623/QAA/trimmomatic/S21_L008_R2_001_TRIMMED_PAIRED.fastqc.gz |grep -B1 "^+" | grep -v "^--" | grep -v "^+" | awk '{print length($0)}' | sort -n | uniq -c | sort > read_dist/S21_R2_PAIRED_LEN_DIST
+
+```
+
 ## Part 3 - alignments
 ```
 $ conda install star
@@ -335,7 +347,17 @@ Unmapped Reads: 260800
 Mapped Reads: 33637699
 Unmapped Reads: 1293527
 ```
+#### my mapped script results: 
+**S21**
+Mapped Reads:  8883008
+Unmapped Reads:  260800
+Percent of reads mapped: 8883008 / 9143808 = 0.9714779663 = 97.15%
 
+
+**S9**
+Mapped Reads:  33637699
+Unmapped Reads:  1293527
+Percent of reads mapped: 33637699 / 34931226 = 0.9629693215 = 96.3%
 ### HTseq count
 https://htseq.readthedocs.io/en/release_0.11.1/count.html
 
@@ -346,3 +368,71 @@ htseq-count [options] <alignment_files> <gff_file> > [outfile]
 $ sbatch htseq.sh 
 Submitted batch job 16037607
 ```
+MAPPED TOTAL: 
+```
+$ cat htseq_out_S9_reverse | grep "^ENS" | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+Sum of 3rd field: 13817984 Total number of lines: 57186
+
+$ cat htseq_out_S9_stranded | grep "^ENS" | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+Sum of 3rd field: 557737 Total number of lines: 57186
+
+$ cat htseq_out_S21_reverse | grep "^ENS" | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+Sum of 3rd field: 3859630 Total number of lines: 57186
+
+$ cat htseq_out_S21_stranded | grep "^ENS" | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+Sum of 3rd field: 179976 Total number of lines: 57186
+```
+
+TOTAL READS: 
+```
+$ cat htseq_out_S9_reverse | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+Sum of 3rd field: 17465613 Total number of lines: 57191
+
+$ cat htseq_out_S9_stranded | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+Sum of 3rd field: 17465613 Total number of lines: 57191
+
+$ cat htseq_out_S21_reverse | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+Sum of 3rd field: 4571904 Total number of lines: 57191
+
+$ cat htseq_out_S21_stranded | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+Sum of 3rd field: 4571904 Total number of lines: 57191
+```
+#### HTseq results: 
+**S9**
+RV Mapped Reads:  13817984
+RV Total Reads:  17465613
+RV Percent of reads mapped: 13817984 / 17465613 = 0.7911536801 = 79.12%
+FW Mapped Reads:  557737
+FW Total Reads:  17465613
+FW Percent of reads mapped: 557737 / 17465613 = 0.031933434 = 3.19%
+
+REVERSE STRANDED 
+**S21**
+RV Mapped Reads:  3859630
+RV Total Reads:  4571904
+RV Percent of reads mapped: 3859630 / 4571904 = 0.844206265 = 84.42%
+FW Mapped Reads:  179976
+FW Total Reads:  4571904
+FW Percent of reads mapped: 179976 / 4571904 = 0.03936565597 = 3.93%
+
+explanation : https://www.biostars.org/p/205987/
+much higher mapped counts for REVERSE! 
+
+
+Yes it is stranded - reverse stranded and because the forward, revers counts are different we know that the direction matters and it is stranded! 
+
+## RMD 
+ok well I pulled all the stuff i need to my personal computer and then started working in the RMD - i need to edit my dist_qcore.py script to mkae the plot title specific to the file and rerun my dist_plots.sh 
+
+```
+$ sbatch dist_plots.sh 
+Submitted batch job 16038562
+```
+output file: 
+to figure out perportions of mapped : total of everything that didnt have __ in front 
+
+total the second column: 
+```
+cat OUTPUT FILE HERE | grep "^ENS" | awk -F'\t' '{sum += $2}END{ printf "Sum of 3rd field: %d Total number of lines: %d\n", sum, NR }'
+```
+htseq files: 
