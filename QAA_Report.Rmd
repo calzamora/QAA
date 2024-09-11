@@ -1,7 +1,7 @@
 ---
-title: "QAA_Report"
-output: html_document
-date: "2024-09-08"
+title: "RNA-seq Quality Assasment Assignment Report"
+output: pdf_document
+date: "Carter Alzamora"
 ---
 
 ```{r setup, include=FALSE}
@@ -9,110 +9,266 @@ knitr::opts_chunk$set(echo = TRUE)
 library(png)
 library(grid)
 library(gridExtra)
+library(tinytex)
+library(pander)
 ```
+This report is in reference to the libraries:\
+**29_4E_fox_S21_L008 - from here on referred to as S21**\
+**11_2H_both_S9_L008 - from here on referred to as S9**\
+Both S21 and S9 have an R1 and R2 file.\
 
 ## Part 1 - Read Quality Score Distributions 
-### My Software - dist_qscore.py output plots
+To begin investigating these two libraries, I first ran my own python script to parse the average quality score per base in each file. The output of this script is as follows:\
+R1 for both S9 and S21 (A + C) is more consistent than R2 (B + D) in quality score for both data sets, as show in in FIGURE 1 below. As expected, read quality dips at the beginning and ends of the reads. Overall, reads average over 30 in phred+33 encoding. The S21R2 (D) Library is the most variable with relatively large dips in the quality score throughout the read compared to the more stable quality score of the other libraries.
 
-```{r, echo=FALSE}
+```{r echo=FALSE, fig.width=8, fig.height=5, fig.cap="Per Base Quality Score Output from dist_qscore.py"}
 S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R1.png")
 S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S9_L008_R2.png")
 S21R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S21_L008_R1.png")
 S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/dist_qscore_out/S21_L008_R2.png")
 
-grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), rasterGrob(S21R1), rasterGrob(S21R2 ), nrow = 2, ncol = 2,top=textGrob("Graphs Output From dist_qscore.py", gp=gpar(fontsize=15)))
-
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), rasterGrob(S21R1), rasterGrob(S21R2 ), nrow = 2, ncol = 2)
+grid.text("A", x=unit(0.018, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("B", x=unit(0.518, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("C", x=unit(0.018, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("D", x=unit(0.518, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
 ```
 
-R1 is more consistant in quality score for both data sets. As expected, read quality dips at the beginning and ands of the reads. Overall, all reads average over 30 in phred+33 encoding.
+\newpage
 
-```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
+**The next step was to run these libraries through FastQC in order to compare the results of the professional software to my own. FastQC output per-base mean quality score graphs as well as a report of other metrics of the data. The highlights of this output are as follows:**\ 
+
+The scale of the FastQC graphs show the outputs of these libraries relative to the entire scale of phred scores as seen in FIGURE 2 below. They show that the majority of these reads fall on the high end of this scale. However, this scale obscures some of the variation in quality score throughout the reads.\
+The same major patterns can be seen as in the graphs output from dist_qscore.py most importantly, the dips in quality at the beginning and ends of reads. The colored visualization of the score ranges as green, yellow, and red, do convey the overall quality of these libraries at a glance. The yellow boxes representing the 25th and 75th percentiles are another good visualization of the quality of the data. Again, the S21R2 (D) Library is the most variable with a much wider spread of quality throughout the entire read as shown by the wider quartile boxes and large error bars. For both S9 and S21, the R1 libraries are more consistantly high quality.
+
+```{r, echo=FALSE, fig.width=8, fig.height=5, fig.cap="FastQC quality per base S9R1 (A),  S9R2(B), S21R1(C), and S21R2(D)"}
 S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R1_001_fastqc/Images/per_base_quality.png")
 S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R2_001_fastqc/Images/per_base_quality.png")
-
-grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 1, ncol = 2,
-             top=textGrob("Graphs output from S9_L008 FastQC",
-                          gp=gpar(fontsize=15,font=8)))
-```
-```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
-
-S21R1 <- readPNG("//Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R1_001_fastqc/Images/per_base_quality.png")
+S21R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R1_001_fastqc/Images/per_base_quality.png")
 S21R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R2_001_fastqc/Images/per_base_quality.png")
 
-grid.arrange( rasterGrob(S21R1), rasterGrob(S21R2), nrow = 1, ncol = 2,
-             top=textGrob("Graphs output from S21_L008 FastQC",
-                          gp=gpar(fontsize=15,font=8)))
+grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), rasterGrob(S21R1), rasterGrob(S21R2), nrow = 2, ncol = 2)
+grid.text("A", x=unit(0.018, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("B", x=unit(0.518, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("C", x=unit(0.018, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("D", x=unit(0.518, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
 ```
+
+\newpage
+**FastQC More info:**\
+The per sequence quality score of these libraries is show in FIGURE 3. All these libraries are consistently averaging over 30 relatively consistently. S21R2(D) has the most spread of mean sequence quality score. However, the majority of it's sequences are still well over 30 in phred score. This is a pattern that is reflected in the per-base quality score distribution so it is expected that the sequence quality scores would be more dispersed in this metric as well.\
+
+```{r echo=FALSE, fig.width=8, fig.height=5, fig.cap="Per Sequence Quality Score Graphs output by FastQC for S9R1(A), S9R2(B), S21R1(C), and S21R2(D)"}
+
+S9R1_seq_qual <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R1_001_fastqc/Images/per_sequence_quality.png")
+S9R2_seq_qual <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R2_001_fastqc/Images/per_sequence_quality.png")
+S21R1_seq_qual <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_sequence_quality.png")
+S21R2_seq_qual <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R2_001_fastqc/Images/per_sequence_quality.png")
+grid.arrange( rasterGrob(S9R1_seq_qual), rasterGrob(S9R2_seq_qual), rasterGrob(S21R1_seq_qual), rasterGrob(S21R2_seq_qual), nrow = 2, ncol = 2)
+grid.text("A", x=unit(0.018, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("B", x=unit(0.518, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("C", x=unit(0.018, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("D", x=unit(0.518, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
+```
+
+
+```{r, echo=FALSE, fig.width=8, fig.height=5, fig.cap="Per Base N Content Graphs output by FastQC for S9R1(A), S9R2(B), S21R1(C), and S21R2(D)"}
+
+S9R1_n <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R1_001_fastqc/Images/per_base_n_content.png")
+S9R2_n <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/11_2H_both_S9_L008_R2_001_fastqc/Images/per_base_n_content.png")
+S21R1_n <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R1_001_fastqc/Images/per_base_n_content.png")
+S21R2_n <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_1/fastqc/29_4E_fox_S21_L008_R2_001_fastqc/Images/per_base_n_content.png")
+grid.arrange( rasterGrob(S9R1_n), rasterGrob(S9R2_n), rasterGrob(S21R1_n), rasterGrob(S21R2_n), nrow = 2, ncol = 2)
+grid.text("A", x=unit(0.018, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("B", x=unit(0.518, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("C", x=unit(0.018, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("D", x=unit(0.518, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
+
+```
+
+The overall n-content is very low in every library as seen in FIGURE 4. Each of them has a small increase of n's at the very beginning of the reads around base 1-2. This is expected due to the quality score dips at the beginning of the libraries. This is not concerning to me as it is expected for Illumina reads to have these lower quality reads at each end. Even at these early bases, the N-content is low and will not obscure the actual reads.\ 
+
+FastQC consistently required less time and CPU to process than my dist_qscore.py script to do signficantly more analysis. It also ran the R1 and R2 reads simultaneously while my software had to break these up individually. The comparative metrics of these runs are referenced in Tables 1-4 below.
+\newpage
+
+```{r table-simple, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+require(pander)
+panderOptions('table.split.table', Inf)
+set.caption("Run Metrics for S21R1 in dist_qscore.py vs FastQC for R1 + R2")
+tabl_S21R1_Metrics <- "
+|    S21_L008_R1_001     | My Code           | FastQC (R1 + R2)  |
+|  Runtime user(sec)       | 87.64 | 152.83 |
+| Mem/CPU      | 100%     |   98%  |
+"
+df <- read.delim(textConnection(tabl_S21R1_Metrics),header=FALSE,sep="|",strip.white=TRUE,stringsAsFactors=FALSE)
+names(df) <- unname(as.list(df[1,])) # put headers on
+df <- df[-1,] # remove first row
+row.names(df)<-NULL
+pander(df, style = 'rmarkdown')
+```
+```{r table-simple1, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+require(pander)
+panderOptions('table.split.table', Inf)
+set.caption("Run Metrics for S21R2 in dist_qscore.py vs FastQC for R1 + R2")
+tabl_S21R2_Metrics <- "
+|    S21_L008_R2_001     | My Code           | FastQC (R1 + R2)  |
+|  Runtime user(sec)       | 313.13 | 152.83 |
+| Mem/CPU      | 97%     |   98%  |
+"
+df <- read.delim(textConnection(tabl_S21R2_Metrics),header=FALSE,sep="|",strip.white=TRUE,stringsAsFactors=FALSE)
+names(df) <- unname(as.list(df[1,])) # put headers on
+df <- df[-1,] # remove first row
+row.names(df)<-NULL
+pander(df, style = 'rmarkdown')
+```
+
+
+```{r table-simple2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+require(pander)
+panderOptions('table.split.table', Inf)
+set.caption("Run Metrics for S9R1 in dist_qscore.py vs FastQC for R1 + R2")
+tabl_S9R1_Metrics <- "
+|    S9_L008_R1_001     | My Code           | FastQC (R1 + R2)  |
+|  Runtime user(sec)       | 313.13 | 152.83 |
+| Mem/CPU      | 97%     |   98%  |
+"
+df <- read.delim(textConnection(tabl_S9R1_Metrics),header=FALSE,sep="|",strip.white=TRUE,stringsAsFactors=FALSE)
+names(df) <- unname(as.list(df[1,])) # put headers on
+df <- df[-1,] # remove first row
+row.names(df)<-NULL
+pander(df, style = 'rmarkdown')
+```
+```{r table-simple3, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+require(pander)
+panderOptions('table.split.table', Inf)
+set.caption("Run Metrics for S9R2 in dist_qscore.py vs FastQC for R1 + R2")
+tabl_S9R2_Metrics <- "
+|    S9_L008_R2_001     | My Code           | FastQC (R1 + R2)  |
+|  Runtime user(sec)       | 312.84 | 152.83 |
+| Mem/CPU      | 99%    |   98%   |
+"
+df <- read.delim(textConnection(tabl_S9R2_Metrics),header=FALSE,sep="|",strip.white=TRUE,stringsAsFactors=FALSE)
+names(df) <- unname(as.list(df[1,])) # put headers on
+df <- df[-1,] # remove first row
+row.names(df)<-NULL
+pander(df, style = 'rmarkdown')
+#cat(tabl_S9R2_Metrics)
+```
+
 
 ### Are these libraries high quality? 
 
+Yes - I would consider these libraries to be of high enough qulaity to continue. Their per base(fig.1 + 2) and per sequence quality(fig.3) scores are all consistantly high with the exception of the S21R2(fig.1 + 2 + 3 (D)). Even this library has an overall high quality score even if it is less consistant throughout the read. The n content is low throughout each of the reads suggesting that there are a minimal number of missing reads. This all combines to give me confidence in these libraries even before the processing that follows.\ 
+
+\newpage
 
 ## Part 2 - Adaptor Trimming Comparison 
-```{r, echo=FALSE, fig.cap= "Length distribution for S9(LEFT) + S21(RIGHT)"}
+After using cutadapt to remove adapter sequences and trimmomatic to quality trim the data, I plotted the length distribution of reads in the trimmed data - this is shown in FIGURE 5 below. In both the S9 and S21 data R2(blue) was trimmed more extensively than R1(pink). This is shown in the higher concentration of short sequences in the reverse(R2) library when compared to the forward(R1) library. This makes sense as the initial data were higher quality for both R1 libraries.\
+
+```{r, echo=FALSE, fig.width=8, fig.height=2.5, fig.cap="Read Length Distribution of Trimmed Libraries S9(A), and S21(B)"}
 
 S9_Trimmed_len_dist <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/read_dist/S9_L008_TRIMMED_PAIRED.png")
 
 S21_Trimmed_len_dist <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/read_dist/S21_L008_TRIMMED_PAIRED.png")
 
-grid.arrange(rasterGrob(S9_Trimmed_len_dist), rasterGrob(S21_Trimmed_len_dist), nrow = 1, ncol = 2,
-             top=textGrob("Distribution of Read Lengths' Log Transformed",
-                          gp=gpar(fontsize=15)))
+grid.arrange(rasterGrob(S9_Trimmed_len_dist) , rasterGrob(S21_Trimmed_len_dist), nrow = 1, ncol = 2)
+grid.text("A", x=unit(0.018, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("B", x=unit(0.518, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
 ```
 
-### CHALLANGE - FastQC Trimmed data: 
-```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
-S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S9_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
-S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S9_L008_R2_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+When FastQC was run on the trimmed data as shown in FIGURE 6 below, the resulting quality per base graphs showed a mugh higher average when compared to the raw data in FIGURE 2. This shows how removing the adaptor sequences and low quality reads raises the overall quality score of the library even while it leaves them with shorter reads.\
 
-grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 1, ncol = 2,
-             top=textGrob("Graphs output from S9_L008 Trimmed Data FastQC",
-                          gp=gpar(fontsize=15,font=8)))
+Again, the R2 reverse files (FIGURE 6. (B + D)) are overall less consistent in mean quality score throughout the read. The S21R2 (D) library is still less consistant than the others, however it's mean quality scores have a less dramatic spread and are averaging higher than in the initial library.\
 
+I would expect the R1 reads to be adapter-trimmed at a higher rate because the read qualities are higher overall, there will be more adapter sequences on the reads to be trimmed. This will not necessarily result in shorter read lengths as the R1 will not be quality trimmed as harshly as R2. 
+
+```{r, echo=FALSE, fig.width=8, fig.height=5, fig.cap="FastQC quality per base on trimmed libraries S9R1 (A),  S9R2(B), S21R1(C), and S21R2(D)"}
+S9R1_t <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S9_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+S9R2_t <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S9_L008_R2_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+S21R1_t <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+S21R2_t <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R2_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
+
+grid.arrange(rasterGrob(S9R1_t), rasterGrob(S9R2_t), rasterGrob(S21R1_t), rasterGrob(S21R2_t), nrow = 2, ncol = 2)
+grid.text("A", x=unit(0.018, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("B", x=unit(0.518, "npc"), y=unit(0.955, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("C", x=unit(0.018, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
+grid.text("D", x=unit(0.518, "npc"), y=unit(0.455, "npc"), gp=gpar(fontsize=10, col="grey25"))
 ```
-```{r, echo=FALSE, fig.cap= "R1 (LEFT) + R2(RIGHT)"}
-S9R1 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R1_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
-S9R2 <- readPNG("/Users/carteralzamora/bioinfo/Bi623/QAA/Part_2/challange_fastqc/S21_L008_R2_001_TRIMMED_PAIRED.fastqc_fastqc/Images/per_base_quality.png")
-
-grid.arrange(rasterGrob(S9R1), rasterGrob(S9R2), nrow = 1, ncol = 2,
-             top=textGrob("Graphs output from S21_L008 Trimmed Data FastQC",
-                          gp=gpar(fontsize=15,font=8)))
-```
 
 
+\newpage
 ## Part 3 - Alignment and Strand Specificity 
-### My script mapped_counts.py results
-```{r table1, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
-tabl_3 <- "
-|     mapped_counts.py Results    | S9           | S21  |
-|---------------|:-------------:|------:|
-| Total Reads      | 34931226 | 9143808 |
-| Mapped Reads      | 33637699     |   8883008 |
-| Percent of Reads. Mapped | 96.3%     |    97.15% | 
-"
-cat(tabl_3) # output the table in a format good for HTML/PDF/docx conversion
-
-```
-
-
-### HT_seq Results 
-```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
-tabl <- "
-|     S9 HTseq results    | Foward           | Reverse  |
-|---------------|:-------------:|------:|
-| Total Reads      | 17465613 | 17465613 |
-| Mapped Reads      | 557737     |   13817984 |
-| Percent of Reads. Mapped | 3.19%      |    79.12% | 
-"
-cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
-
-tabl_1 <- "
-|    S21 HTseq results     | Foward           | Reverse  |
-|---------------|:-------------:|------:|
-| Total Reads      | 4571904 | 4571904 |
-| Mapped Reads      | 179976     |   3859630 |
-| Percent of Reads. Mapped | 3.93%      |    84.42% | 
-"
-cat(tabl_1) # output the table in a format good for HTML/PDF/docx conversion
-```
 ### Are these libraries stranded? 
-**yes it is stranded - reverse stranded and because the forward, revers counts are different we know that the direction matters and it is stranded**
+Yes, these libraries are both stranded. The results of the R2 reverse HTseq runs are 79.12% and 84.42% for the 11_2H_both_S9_L008 (Table 6) and 29_4E_fox_S21_L008 (Table 7) libraries respectively. Comparatively, the results of the R1 forward stranded HTseq run only have 3.19% and 3.93% for the 11_2H_both_S9_L008 and 29_4E_fox_S21_L008 libraries respectively.\
+The higher alignment numbers for the reverse run indicate that the reverse stranded R2 file aligned better that the Forward R1 file.\
+This can also be seen quantitatively - the mapped and unmapped read count output from my mapped_counts.py software are equal to 2x the total reads in HTseq:\
+
+**count of mapped reads + unmapped reads = (sum of all the htseq values)x2** \
+
+**S9:**\ 
+mapped_counts.py: 33,637,699(mapped) + 1,293,527(unmapped) = 34,931,226(total)\
+ht_seq: 17,465,613(output) * 2 = 34,931,226\
+
+
+**S21:**\
+my software: 8,883,008(mapped) + 260,800(unmapped) = 9,143,808(total)\
+ht_seq: 4,571,904 * 2 = 9,143,808
+
+This indicates that when we run HT_seq with the strand flags, it is only taking in half the data - aka one strand. In contrast, my mapped_counts.py (Table 5) software does not have the ability to distinguish between the two strands and therefore is using both - double the data as HT_Seq. This means that the results of mapped_counts.py cannot speak to stranded-ness.\
+
+
+
+```{r table-simple-mapped, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+require(pander)
+panderOptions('table.split.table', Inf)
+set.caption("Counts output by my mapped_counts.py script")
+tabl_S9 <- "
+|    mapped_counts.py Results     | S9            | S21  |
+|  Total Reads       | 34,931,226 | 9,143,808 |
+| Mapped Reads       | 33,637,699    |   8,883,008   |
+| Percent of Reads. Mapped       | 96.3%     |   97.15%  |
+"
+df <- read.delim(textConnection(tabl_S9),header=FALSE,sep="|",strip.white=TRUE,stringsAsFactors=FALSE)
+names(df) <- unname(as.list(df[1,])) # put headers on
+df <- df[-1,] # remove first row
+row.names(df)<-NULL
+pander(df, style = 'rmarkdown')
+
+```
+
+
+```{r table-simple-ht9, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+require(pander)
+panderOptions('table.split.table', Inf)
+set.caption("HTseq results for S9")
+tabl_S9 <- "
+|    S9 HTseq results     | Foward            | Reverse  |
+|  Total Reads       | 17,465,613 | 17,465,613 |
+| Mapped Reads       | 557,737     |   13,817,984  |
+| Percent of Reads. Mapped       | 3.19%     |   79.12%  |
+"
+df <- read.delim(textConnection(tabl_S9),header=FALSE,sep="|",strip.white=TRUE,stringsAsFactors=FALSE)
+names(df) <- unname(as.list(df[1,])) # put headers on
+df <- df[-1,] # remove first row
+row.names(df)<-NULL
+pander(df, style = 'rmarkdown')
+```
+
+```{r table-simple-ht21, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+require(pander)
+panderOptions('table.split.table', Inf)
+set.caption("HTseq results for S21")
+tabl_S21 <- "
+|    S21 HTseq results     | Foward            | Reverse  |
+|  Total Reads       | 4,571,904 | 4,571,904 |
+| Mapped Reads       | 179,976     |   3,859,630  |
+| Percent of Reads. Mapped       | 3.93%     |   84.42%  |
+"
+df <- read.delim(textConnection(tabl_S21),header=FALSE,sep="|",strip.white=TRUE,stringsAsFactors=FALSE)
+names(df) <- unname(as.list(df[1,])) # put headers on
+df <- df[-1,] # remove first row
+row.names(df)<-NULL
+pander(df, style = 'rmarkdown')
+```
+
+
